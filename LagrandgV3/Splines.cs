@@ -77,8 +77,7 @@ namespace LagrandgV3
                 if (i == 0)
                 {
                     //this.c[i] = 0;
-                    this.d[i] = 0;
-                    this.b[i] = 0;
+                    continue;
                 }
                 else if (i == x.Length-1)
                 {
