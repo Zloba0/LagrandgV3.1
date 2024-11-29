@@ -83,7 +83,7 @@ namespace LagrandgV3
                 {
                     //this.c[i] = 0;
                     this.d[i] = (-this.c[i-1]) / Hi(i);
-                    this.b[i] = (y[i] - y[i-1]) / Hi(i);
+                    this.b[i] = -Hi(i)*Hi(i) * this.d[i] / 6 +(y[i] - y[i-1]) / Hi(i);
                 }
                 else
                 {

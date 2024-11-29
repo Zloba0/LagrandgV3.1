@@ -31,11 +31,11 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n+1];
+                    double[] x = new double[n+1];
                     double x0 = a;
 
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function1(x0);
@@ -75,10 +75,10 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function2(x0);
@@ -118,10 +118,10 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function3(x0);
@@ -171,10 +171,10 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function4(x0, k);
@@ -233,12 +233,12 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i < n; i++)
+                    for (int i = 1; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
                         x[i] = h;
                         y[i] = function1(h);
                     }
@@ -275,12 +275,12 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i < n; i++)
+                    for (int i = 1; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
                         x[i] = h;
                         y[i] = function2(h);
                     }
@@ -317,12 +317,12 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i < n; i++)
+                    for (int i = 1; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
                         x[i] = h;
                         y[i] = function3(h);
                     }
@@ -369,12 +369,12 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i < n; i++)
+                    for (int i = 1; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
                         x[i] = h;
                         y[i] = function4(h, k);
                     }
@@ -434,11 +434,11 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
 
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function1(x0);
@@ -457,7 +457,7 @@ namespace LagrandgV3
                     for (x0 = a; x0 <= b; x0 += h)
                     {
                         list2.Add(x0, function1(x0));
-                        if (x0 > x[j] && j < n - 1)
+                        if (x0 > x[j] && j < n)
                         {
                             j++;
                         }
@@ -483,11 +483,11 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
 
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function2(x0);
@@ -506,7 +506,7 @@ namespace LagrandgV3
                     for (x0 = a; x0 <= b; x0 += h)
                     {
                         list2.Add(x0, function2(x0));
-                        if (x0 > x[j] && j < n - 1)
+                        if (x0 > x[j] && j < n)
                         {
                             j++;
                         }
@@ -532,11 +532,11 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
 
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function3(x0);
@@ -555,7 +555,7 @@ namespace LagrandgV3
                     for (x0 = a; x0 <= b; x0 += h)
                     {
                         list2.Add(x0, function3(x0));
-                        if (x0 > x[j] && j < n - 1)
+                        if (x0 > x[j] && j < n)
                         {
                             j++;
                         }
@@ -590,11 +590,11 @@ namespace LagrandgV3
                     double a = -1;
                     double b = 1;
                     double h = (b -a)/n;
-                    double[] y = new double[n];
-                    double[] x = new double[n];
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
                     double x0 = a;
                     double k = Convert.ToDouble(textBox4.Text);
-                    for (int i = 0; i < n; i++, x0 += h)
+                    for (int i = 0; i <= n; i++, x0 += h)
                     {
                         x[i] = x0;
                         y[i] = function4(x0, k);
@@ -613,7 +613,7 @@ namespace LagrandgV3
                     for (x0 = a; x0 <= b; x0 += h)
                     {
                         list2.Add(x0, function4(x0, k));
-                        if (x0 > x[j] && j < n - 1)
+                        if (x0 > x[j] && j < n)
                         {
                             j++;
                         }
