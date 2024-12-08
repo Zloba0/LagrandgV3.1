@@ -232,13 +232,13 @@ namespace LagrandgV3
 
                     double a = -1;
                     double b = 1;
-                    double h = (b -a)/n;
+                    double h;
                     double[] y = new double[n + 1];
                     double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i <= n; i++)
+                    for (int i = 0; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2))/ 2;
                         x[i] = h;
                         y[i] = function1(h);
                     }
@@ -278,9 +278,9 @@ namespace LagrandgV3
                     double[] y = new double[n + 1];
                     double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i <= n; i++)
+                    for (int i = 0; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
                         x[i] = h;
                         y[i] = function2(h);
                     }
@@ -320,9 +320,9 @@ namespace LagrandgV3
                     double[] y = new double[n + 1];
                     double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i <= n; i++)
+                    for (int i = 0; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
                         x[i] = h;
                         y[i] = function3(h);
                     }
@@ -372,9 +372,9 @@ namespace LagrandgV3
                     double[] y = new double[n + 1];
                     double[] x = new double[n + 1];
                     double x0 = a;
-                    for (int i = 1; i <= n; i++)
+                    for (int i = 0; i <= n; i++)
                     {
-                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * (n + 1) + 2)) / 2;
+                        h = (b + a) / 2 + (b - a) * Math.Cos((2 * i + 1) * Math.PI / (2 * n + 2)) / 2;
                         x[i] = h;
                         y[i] = function4(h, k);
                     }
@@ -618,6 +618,199 @@ namespace LagrandgV3
                             j++;
                         }
                         list.Add(x0, var.S(j, x0));
+                    }
+                    LineItem myCurve = pane.AddCurve(" ", list, Color.Blue, SymbolType.None);
+                    LineItem myCurve2 = pane.AddCurve(" ", list2, Color.Red, SymbolType.None);
+
+                    zedGraph.AxisChange();
+
+                    zedGraph.Invalidate();
+                }
+                catch
+                {
+                    MessageBox.Show("Wrong input of parameter n!", "Worning!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select one function!", "Worning!");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (f1.Checked && !f2.Checked && !f3.Checked && !f4.Checked)
+            {
+                try
+                {
+                    int n = Convert.ToInt32(textBox2.Text);
+                    double a = -1;
+                    double b = 1;
+                    double h = (b -a)/n;
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
+                    double x0 = a;
+
+                    for (int i = 0; i <= n; i++, x0 += h)
+                    {
+                        x[i] = x0;
+                        y[i] = function1(x0);
+                    }
+
+                    Nuton var = new Nuton(x, y, h);
+
+                    GraphPane pane = zedGraph.GraphPane;
+
+                    pane.CurveList.Clear();
+
+                    PointPairList list = new PointPairList();
+                    PointPairList list2 = new PointPairList();
+                    h = 0.00001;
+                    for (x0 = a; x0 <= b; x0 += h)
+                    {
+                        list2.Add(x0, function1(x0));
+                        list.Add(x0, var.N(x0));
+                    }
+                    LineItem myCurve = pane.AddCurve(" ", list, Color.Blue, SymbolType.None);
+                    LineItem myCurve2 = pane.AddCurve(" ", list2, Color.Red, SymbolType.None);
+
+                    zedGraph.AxisChange();
+
+                    zedGraph.Invalidate();
+                }
+                catch
+                {
+                    MessageBox.Show("Wrong input of parameter n!", "Worning!");
+                }
+            }
+            else if (f2.Checked && !f1.Checked && !f3.Checked && !f4.Checked)
+            {
+                try
+                {
+                    int n = Convert.ToInt32(textBox2.Text);
+                    double a = -1;
+                    double b = 1;
+                    double h = (b -a)/n;
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
+                    double x0 = a;
+
+                    for (int i = 0; i <= n; i++, x0 += h)
+                    {
+                        x[i] = x0;
+                        y[i] = function2(x0);
+                    }
+
+                    Nuton var = new Nuton(x, y, h);
+
+                    GraphPane pane = zedGraph.GraphPane;
+
+                    pane.CurveList.Clear();
+
+                    PointPairList list = new PointPairList();
+                    PointPairList list2 = new PointPairList();
+                    h = 0.00001;
+                    for (x0 = a; x0 <= b; x0 += h)
+                    {
+                        list2.Add(x0, function2(x0));
+                        list.Add(x0, var.N(x0));
+                    }
+                    LineItem myCurve = pane.AddCurve(" ", list, Color.Blue, SymbolType.None);
+                    LineItem myCurve2 = pane.AddCurve(" ", list2, Color.Red, SymbolType.None);
+
+                    zedGraph.AxisChange();
+
+                    zedGraph.Invalidate();
+                }
+                catch
+                {
+                    MessageBox.Show("Wrong input of parameter n!", "Worning!");
+                }
+            }
+            else if (!f2.Checked && !f1.Checked && f3.Checked && !f4.Checked)
+            {
+                try
+                {
+                    int n = Convert.ToInt32(textBox2.Text);
+                    double a = -1;
+                    double b = 1;
+                    double h = (b -a)/n;
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
+                    double x0 = a;
+
+                    for (int i = 0; i <= n; i++, x0 += h)
+                    {
+                        x[i] = x0;
+                        y[i] = function3(x0);
+                    }
+
+                    Nuton var = new Nuton(x, y, h);
+
+                    GraphPane pane = zedGraph.GraphPane;
+
+                    pane.CurveList.Clear();
+
+                    PointPairList list = new PointPairList();
+                    PointPairList list2 = new PointPairList();
+                    h = 0.00001;
+                    for (x0 = a; x0 <= b; x0 += h)
+                    {
+                        list2.Add(x0, function3(x0));
+                        list.Add(x0, var.N(x0));
+                    }
+                    LineItem myCurve = pane.AddCurve(" ", list, Color.Blue, SymbolType.None);
+                    LineItem myCurve2 = pane.AddCurve(" ", list2, Color.Red, SymbolType.None);
+
+                    zedGraph.AxisChange();
+
+                    zedGraph.Invalidate();
+                }
+                catch
+                {
+                    MessageBox.Show("Wrong input of parameter n!", "Worning!");
+                }
+            }
+            else if (!f2.Checked && !f1.Checked && !f3.Checked && f4.Checked)
+            {
+                try
+                {
+                    double k = Convert.ToDouble(textBox4.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Wrong input of parameter k!", "Worning!");
+                    return;
+                }
+                try
+                {
+                    int n = Convert.ToInt32(textBox2.Text);
+                    double a = -1;
+                    double b = 1;
+                    double h = (b -a)/n;
+                    double[] y = new double[n + 1];
+                    double[] x = new double[n + 1];
+                    double x0 = a;
+                    double k = Convert.ToDouble(textBox4.Text);
+                    for (int i = 0; i <= n; i++, x0 += h)
+                    {
+                        x[i] = x0;
+                        y[i] = function4(x0, k);
+                    }
+
+                    Nuton var = new Nuton(x, y, h);
+
+                    GraphPane pane = zedGraph.GraphPane;
+
+                    pane.CurveList.Clear();
+
+                    PointPairList list = new PointPairList();
+                    PointPairList list2 = new PointPairList();
+                    h = 0.00001;
+                    for (x0 = a; x0 <= b; x0 += h)
+                    {
+                        list2.Add(x0, function4(x0, k));
+                        list.Add(x0, var.N(x0));
                     }
                     LineItem myCurve = pane.AddCurve(" ", list, Color.Blue, SymbolType.None);
                     LineItem myCurve2 = pane.AddCurve(" ", list2, Color.Red, SymbolType.None);
